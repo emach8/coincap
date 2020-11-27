@@ -1,0 +1,6 @@
+{
+    "require": {
+        "codenix-sv/coingecko-api": "^1.0",
+        "dg/rss-php": "^1.4"
+    }
+}
