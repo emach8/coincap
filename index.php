@@ -39,6 +39,12 @@ require_once 'php/api_functions.php';
             <li class="nav-item">
               <a class="nav-link" href="news.php">News</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.php">About</a>
+            </li>
           </ul>
         </div>
         <?php if (isset($_SESSION["userId"])) {
@@ -62,14 +68,14 @@ require_once 'php/api_functions.php';
       <?php pills(); ?>
     </div>
     <div class="row mb-4">
-      <div class="w-100 p-4 text-center rounded z-depth-2">
+      <div class="w-100 p-4 text-center">
         <h2 class="mb-3">Cryptocurrency Prices by Market Capitalization</h2>
         <p class="lead mb-3 text-black-50">
           The global crypto market cap increased
           <span class="text-success font-weight-bold"><?php echo $change; ?>%</span> the last
           day.
         </p>
-        <p class="text-muted">powered by <span class="font-weight-bold text-info font-italic text-decoration-underline">CoinGecko API</span></p>
+        <p class="text-muted">powered by <span class="font-weight-bold text-default font-italic"><u>CoinGecko API</u></span></p>
       </div>
     </div>
     <div class="row mb-4">

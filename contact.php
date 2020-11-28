@@ -1,7 +1,5 @@
 <?php
 session_start();
-require_once 'php/rss.php';
-require_once 'php/api_functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +21,7 @@ require_once 'php/api_functions.php';
 <body>
   <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color-dark fixed-top scrolling-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.php">
           <i class="fab fa-bitcoin fa-2x d-inline-block align-top"></i>
@@ -37,10 +35,10 @@ require_once 'php/api_functions.php';
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="news.php">News</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="contact.php">Contact</a>
             </li>
             <li class="nav-item">
@@ -64,38 +62,68 @@ require_once 'php/api_functions.php';
       </div>
     </nav>
   </header>
-  <div class="container" style="margin-top: 100px;">
-    <div class="row mb-4 justify-content-between">
-      <?php pills(); ?>
-    </div>
-    <div class=" row mb-4">
-      <div class="w-100 p-4 text-center">
-        <h2 class="mb-3">Latest Bitcoin, Altcoins and Blockchain related news.</h2>
-        <p class="text-muted">powered by <span class="font-weight-bold text-default font-italic"><u>Cointelegraph</u></span></p>
+  <div style="margin-top: 70px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.7890741539636!2d15.966758816056517!3d45.795453279106205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d68b5d094979%3A0xda8bfa8459b67560!2sUl.+Vrbik+VIII%2C+10000%2C+Zagreb!5e0!3m2!1shr!2shr!4v1509296660756" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+  <div class="container">
+    <section class="mb-4">
+      <h2 class="h1-responsive text-center my-4">Contact us</h2>
+      <p class="lead text-muted text-center w-responsive mx-auto mb-5">If you have any questions please do not hesitate to contact us directly.</p>
+      <div class="row">
+        <div class="col-md-9 mb-md-0 mb-5">
+          <form id="contact-form" name="contact-form" action="php/contact_inc.php" method="POST">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <input type="text" id="name" name="name" class="form-control">
+                  <label for="name" class="">Your name</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <input type="text" id="email" name="email" class="form-control">
+                  <label for="email" class="">Your email</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="md-form mb-0">
+                  <input type="text" id="subject" name="subject" class="form-control">
+                  <label for="subject" class="">Subject</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="md-form">
+                  <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                  <label for="message">Your message</label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="text-center text-md-center">
+            <a class="btn btn-amber" onclick="document.getElementById('contact-form').submit();">Send</a>
+          </div>
+          <div class="status"></div>
+        </div>
+        <div class="col-md-3 text-center">
+          <ul class="list-unstyled mb-0">
+            <li><i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+              <p>Vrbik, 10000 Zagreb</p>
+            </li>
+
+            <li><i class="fas fa-phone mt-4 fa-2x text-primary"></i>
+              <p>+385 1 123 223</p>
+            </li>
+            <li><i class="fas fa-envelope mt-4 fa-2x text-primary"></i>
+              <p>mkaurin@tvz.hr</p>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active text-uppercase" id="ex3-tab-1" data-toggle="pill" href="#ex3-pills-1" role="tab" aria-controls="ex3-pills-1" aria-selected="true">Bitcoin</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-uppercase" id="ex3-tab-2" data-toggle="pill" href="#ex3-pills-2" role="tab" aria-controls="ex3-pills-2" aria-selected="false">Altcoins</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-uppercase" id="ex3-tab-3" data-toggle="pill" href="#ex3-pills-3" role="tab" aria-controls="ex3-pills-3" aria-selected="false">BlockChain News</a>
-      </li>
-    </ul>
-    <div class="tab-content" id="ex2-content">
-      <div class="tab-pane fade show active" id="ex3-pills-1" role="tabpanel" aria-labelledby="ex3-tab-1">
-        <?php getBitcoinRss(); ?>
-      </div>
-      <div class="tab-pane fade" id="ex3-pills-2" role="tabpanel" aria-labelledby="ex3-tab-2">
-        <?php getAltcoinRss(); ?>
-      </div>
-      <div class="tab-pane fade" id="ex3-pills-3" role="tabpanel" aria-labelledby="ex3-tab-3">
-        <?php getBlockChainRss(); ?>
-      </div>
-    </div>
+    </section>
   </div>
   <footer class="bg-dark text-center text-lg-left text-light">
     <div class="text-center p-3">

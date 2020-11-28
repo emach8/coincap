@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once 'php/rss.php';
 require_once 'php/api_functions.php';
 ?>
 
@@ -37,13 +36,13 @@ require_once 'php/api_functions.php';
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="news.php">News</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.php">Contact</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="about.php">About</a>
             </li>
           </ul>
@@ -64,40 +63,29 @@ require_once 'php/api_functions.php';
       </div>
     </nav>
   </header>
-  <div class="container" style="margin-top: 100px;">
-    <div class="row mb-4 justify-content-between">
-      <?php pills(); ?>
-    </div>
-    <div class=" row mb-4">
-      <div class="w-100 p-4 text-center">
-        <h2 class="mb-3">Latest Bitcoin, Altcoins and Blockchain related news.</h2>
-        <p class="text-muted">powered by <span class="font-weight-bold text-default font-italic"><u>Cointelegraph</u></span></p>
-      </div>
-    </div>
-    <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active text-uppercase" id="ex3-tab-1" data-toggle="pill" href="#ex3-pills-1" role="tab" aria-controls="ex3-pills-1" aria-selected="true">Bitcoin</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-uppercase" id="ex3-tab-2" data-toggle="pill" href="#ex3-pills-2" role="tab" aria-controls="ex3-pills-2" aria-selected="false">Altcoins</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-uppercase" id="ex3-tab-3" data-toggle="pill" href="#ex3-pills-3" role="tab" aria-controls="ex3-pills-3" aria-selected="false">BlockChain News</a>
-      </li>
-    </ul>
-    <div class="tab-content" id="ex2-content">
-      <div class="tab-pane fade show active" id="ex3-pills-1" role="tabpanel" aria-labelledby="ex3-tab-1">
-        <?php getBitcoinRss(); ?>
-      </div>
-      <div class="tab-pane fade" id="ex3-pills-2" role="tabpanel" aria-labelledby="ex3-tab-2">
-        <?php getAltcoinRss(); ?>
-      </div>
-      <div class="tab-pane fade" id="ex3-pills-3" role="tabpanel" aria-labelledby="ex3-tab-3">
-        <?php getBlockChainRss(); ?>
+  <div class="container" style="margin-top: 100px; margin-bottom: 100px">
+    <div class="w-100 p-4 text-center">
+      <h2 class="mb-3">About CoinCap</h2>
+      <p class="lead">
+        CoinCap is price-tracking website for cryptoassets in the rapidly growing cryptocurrency space. CoinCap is tracking price, volume and market capitalization
+        of top 100 cryptoassets, providing support for creation custom tracking portfolios for yours favourite coins.
+        CoinCap provides a fundamental analysis of the crypto market for their users, institutions and media from 2020.
+      </p>
+      <br>
+      <p class="lead text-muted">If you have any feedback or enquiries send us an email at <a href="contact.php"><u>contact page</u></a>.</p>
+      <br>
+      <p class="h4 text-center">CoinCap sources:</p>
+      <div class="row">
+        <div class="col-xl-6">
+          <img src="img/cointelegraph_300.png" class="img-fluid">
+        </div>
+        <div class="col-xl-6">
+          <img src="img/coingecko_1.png" class="img-fluid">
+        </div>
       </div>
     </div>
   </div>
-  <footer class="bg-dark text-center text-lg-left text-light">
+  <footer class="bg-dark text-center text-lg-left text-light fixed-bottom">
     <div class="text-center p-3">
       Copyright © CoinCap 2020
     </div>
