@@ -125,14 +125,14 @@ function getPortfolio($portfolio)
     <tr>
       <td>' . $counter . '</td>
       <td><img class="mr-2" src="' . $image . '" style="width: 25px"><span class="coin_name font-weight-bold">' . $p[2] . '</span></td>
-      <td>$' . $price . '</td>';
+      <td>$' . round((float)$price, 4) . '</td>';
     if (substr(strval($change), 0, 1) == "-") {
       echo '<td><i class="fas fa-caret-down text-danger"></i><span class="text-danger font-weight-normal">' . $change . '%</span></td>';
     } else {
       echo '<td><i class="fas fa-caret-up text-success"></i><span class="text-success font-weight-normal">' . $change . '%</span></td>';
     }
     echo '<td class="coin_holdings">' . $p[3] . '</td>
-      <td>$' . (float)$p[3] * $price . '</td>
+      <td>$' . round(((float)$p[3] * $price), 4) . '</td>
       <td><a class="btnUpdate btn rounded btn-blue-grey btn-sm" data-toggle="modal" data-target="#update"><i class="fas fa-pencil-alt"></i></a>
         <a class="btn rounded btn-danger btn-sm ml-2" href="php/portfolio_crud_inc.php?userId=' . $user . '&coin=' . $p[2] . '"><i class="far fa-trash-alt"></i></a>
       </td>

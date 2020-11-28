@@ -271,10 +271,10 @@ $portfolio = checkPortfolio();
 
     if (currChange > 0) {
       document.getElementById("change").className += " text-success";
-      document.getElementById("change").innerHTML = '<i class="fas fa-caret-up text-success"></i>' + document.getElementById("change").innerHTML;
+      document.getElementById("change").innerHTML = '<i class="fas fa-caret-up text-success mr-2"></i>' + document.getElementById("change").innerHTML;
     } else {
       document.getElementById("change").className += " text-danger";
-      document.getElementById("change").innerHTML = '<i class="fas fa-caret-down text-danger"></i>' + document.getElementById("change").innerHTML;
+      document.getElementById("change").innerHTML = '<i class="fas fa-caret-down text-danger mr-2"></i>' + document.getElementById("change").innerHTML;
     }
   }
 </script>
