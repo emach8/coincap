@@ -16,6 +16,7 @@ if (isset($_SESSION["userId"])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="author" content="Mišel Kaurin">
     <title>CoinCap</title>
     <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +38,7 @@ if (isset($_SESSION["userId"])) {
               </div>';
         } else if ($_GET["error"] == "userdoesnotexist") {
             echo '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                <strong>User does not exist, please register first or use different account.
+                <strong>User does not exist, please sign up first or use different account.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
